@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solutions Items/" />
+  <Folder Name="/src/">
+    <Project Path="CodeDesignPlus.Core/CodeDesignPlus.Core.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="CodeDesignPlus.Core.Test/CodeDesignPlus.Core.Test.csproj" Id="e444263a-70e0-449b-ad4d-58e1bf3d7f9f" />
+  </Folder>
+</Solution>
