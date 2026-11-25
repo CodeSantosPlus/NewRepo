@@ -55,6 +55,7 @@ jobs:
       - name: Build and analyze
         shell: powershell
         run: |
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"CodeSantosPlus_NewRepo" /o:"codesantosplus" /d:sonar.token="${{ steps.auth.outputs.sonar-token }}"
+         ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"CodeSantosPlus_NewRepo" /o:"codesantosplus" /d:sonar.token="${{ steps.auth.outputs.sonar-token }}" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
           dotnet build --no-incremental
+          dotnet test --no-build --configuration Debug --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ steps.auth.outputs.sonar-token }}"
