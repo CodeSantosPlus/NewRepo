@@ -47,7 +47,7 @@ namespace CodeDesignPlus.Core.Models.Pager
                 }else
                 {
                     startPage = currentPage - maxPagesBeforeCurrentPage;
-                    endPages = currentPage + maxPagesBeforeCurrentPage;
+                    endPages = currentPage + maxPagesAfterCurrentPage;
                 }
             }
             var startIndex = (currentPage - 1) * pageSize;
@@ -62,6 +62,7 @@ namespace CodeDesignPlus.Core.Models.Pager
             this.EndIndex = endIndex;
             this.Pages = pages;
             this.Data = data;
+            this.TotalPages = totalPage;
 
         }
 

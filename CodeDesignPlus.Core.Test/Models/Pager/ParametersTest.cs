@@ -31,7 +31,7 @@ namespace CodeDesignPlus.Core.Test.Models.Pager
             //Assert
             Assert.Empty(result);
             Assert.Equal(currenPage, parameters.CurrentPage);
-            Assert.Equal(maxPage, parameters.CurrentPage);
+            Assert.Equal(maxPage, parameters.MaxPage);
             Assert.Equal(pageSize, parameters.PageSize);
         }
         [Fact]
@@ -53,14 +53,14 @@ namespace CodeDesignPlus.Core.Test.Models.Pager
 
             //Assert
             Assert.Equal(1, result.Count);
-            Assert.Equal("The CurrentPage field nos is valida",result.FirstOrDefault().ErrorMessage);
+            Assert.Equal("The CurrentPage field not is valid",result.FirstOrDefault().ErrorMessage);
         }
         [Fact]
         public void Property_MaxPageIsInValid_OneValidationError()
         {
             //Arrange
             var currenPage = new Random().Next(1,int.MaxValue);
-            var maxPage = new Random().Next((int.MaxValue * -1), 0;
+            var maxPage = new Random().Next((int.MaxValue * -1), 0);
             var pageSize = new Random().Next(1, int.MaxValue);
             var parameters = new Parameters()
             {
@@ -74,7 +74,7 @@ namespace CodeDesignPlus.Core.Test.Models.Pager
 
             //Assert
             Assert.Equal(1, result.Count);
-            Assert.Equal("The MaxPage fiel not is valid", result.FirstOrDefault().ErrorMessage);
+            Assert.Equal("The MaxPage field not is valid", result.FirstOrDefault().ErrorMessage);
         }
         [Fact]
         public void Property_PageSizeIsInValid_OneValidationError()
@@ -95,7 +95,7 @@ namespace CodeDesignPlus.Core.Test.Models.Pager
 
             //Assert
             Assert.Equal(1, result.Count);
-            Assert.Equal("The MaxPage fiel not is valid", result.FirstOrDefault().ErrorMessage);
+            Assert.Equal("The PageSize field not is valid", result.FirstOrDefault().ErrorMessage);
         }
     }
 }
